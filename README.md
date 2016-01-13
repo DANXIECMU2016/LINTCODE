@@ -1,0 +1,2 @@
+# LINTCODE
+Compare Strings
