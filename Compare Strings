@@ -1,0 +1,36 @@
+Compare Strings
+Compare two strings A and B, determine whether A contains all of the characters in B.
+
+The characters in string A and B are all Upper Case letters.
+
+public class Solution {
+    /**
+     * @param A : A string includes Upper Case letters
+     * @param B : A string includes Upper Case letter
+     * @return :  if string A contains all of the characters in B return true else return false
+     */
+    public boolean compareStrings(String A, String B) {
+        // write your code here
+        HashMap<Character,Integer> charCount = new HashMap<Character,Integer>();
+        int i = 0;
+        if(A==null || B==null) return false;
+        for(i=0; i<A.length();i++){
+            if(charCount.containsKey(A.charAt(i))){
+                charCount.put(A.charAt(i),1+charCount.get(A.charAt(i)));
+            }
+            else{
+                charCount.put(A.charAt(i),1);
+            }
+            
+        }
+        for(i = 0; i<B.length(); i++){
+            if(charCount.containsKey(B.charAt(i))&&charCount.get(B.charAt(i))>0){
+                charCount.put(B.charAt(i),charCount.get(B.charAt(i))-1);
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+}
