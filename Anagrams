@@ -1,0 +1,58 @@
+
+Given an array of strings, return all groups of strings that are anagrams. Anagrams Show result
+
+Given an array of strings, return all groups of strings that are anagrams.
+
+Given ["lint", "intl", "inlt", "code"], return ["lint", "inlt", "intl"].
+
+Given ["ab", "ba", "cd", "dc", "e"], return ["ab", "ba", "cd", "dc"].
+
+{
+   
+   
+   
+   
+   
+    /**
+     * @param strs: A list of strings
+     * @return: A list of strings
+     */
+     
+    private int hash(int[] count){
+        int hash = 0;
+        int primeA = 378551;
+        int primeB = 378559;
+        //int result = 0;
+        for(int aNumber: count){
+            hash = hash*primeA + aNumber;
+            primeA = primeA*PrimeB;
+        }
+    } 
+    public List<String> anagrams(String[] strs) {
+        // write your code here
+        int i = 0;
+        int l = 0;
+        ArrayList<String> result = new ArrayList<String>();
+        Map<Integer, ArrayList<String>> strings  = new HashMap<Integer, ArrayList<String>>();
+        
+        for(String aString : strs){
+            int[] charCount = new int[26];
+            for(i = 0; i<aString.length(); i++){
+                charCount[aString.charAt[i]-'a']++;
+            }
+            l = hash(charCount);
+            if(!strings.containsKey(l)){
+                strings.put(l,new ArrayList<String>());
+            }
+            ArrayList<String> stringb = strings.get(l);
+            stringb.add(aString));
+            
+        }
+        for(ArrayList<String> aList: strings.values()){
+                if(aList.size()>1){
+                    result.addAll(aList);
+                }
+        }
+        result result;
+    }
+}
